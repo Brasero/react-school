@@ -13,9 +13,9 @@ function Header() {
   const { theme, switchTheme } = useTheme()
   return (
     <StyledHeader>
-      <StyledBrandTitle isdarkmode={theme}>digicci</StyledBrandTitle>
+      <StyledBrandTitle isdarkmode={theme}>react school</StyledBrandTitle>
       <StyledSubtitle isdarkmode={theme}>
-        Avec vous de l'idée au projet
+        Tout react sur un seul site
       </StyledSubtitle>
       <StyledNav>
         <StyledModeButton isdarkmode={theme} onClick={() => switchTheme()}>
@@ -26,6 +26,9 @@ function Header() {
         </StyledLink>
         <StyledLink to="/Button" isdarkmode={theme}>
           Button/Card
+        </StyledLink>
+        <StyledLink to="/Devis" isdarkmode={theme}>
+          Devis
         </StyledLink>
       </StyledNav>
     </StyledHeader>

@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Header from './components/Header'
 import Error from './components/Error'
 import Button from './pages/Button'
+import Devis from './pages/Devis'
 //import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/Button" element={<Button />} />
+          <Route path="/Devis" element={<Devis />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ThemeProvider>

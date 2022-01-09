@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { styled } from '@mui/styles'
 import { purple } from '@mui/material/colors'
 import ButtonUnstyled from '@mui/base/ButtonUnstyled'
+import Fab from '@mui/material/Fab'
 import Switch from '@mui/material/Switch'
 import colors from './colors'
 import Card from '@mui/material/Card'
@@ -59,6 +60,27 @@ export const StyledModeButton = styled(({ isdarkmode, ...other }) => (
   marginRight: 'auto',
 })
 
+export const StyledActionButton = styled(({ isdarkmode, ...other }) => (
+  <ButtonUnstyled {...other} />
+))({
+  padding: '7px 8px',
+  textAlign: 'center',
+  fontFamily: 'Helvetica',
+  border: (props) =>
+    props.isdarkmode === 'dark'
+      ? '2px solid' + colors.secondary
+      : '2px solid ' + colors.secondary,
+  color: colors.backgroundLight,
+  background: (props) =>
+    props.isdarkmode === 'dark' ? colors.secondary : colors.primary,
+  borderRadius: 25,
+  margin: '10px 15px',
+  boxShadow: (props) =>
+    props.isdarkmode === 'dark'
+      ? '1px 1px 1px inset' + colors.backgroundLight
+      : 'none',
+})
+
 const InitialTitle = styled('h1')({
   fontSize: '32px',
   fontFamily: 'Helvetica, sans-serif',
@@ -102,8 +124,11 @@ export const StyledSubtitle = styled(({ isdarkmode, ...other }) => (
     props.isdarkmode === 'dark' ? colors.backgroundLight : colors.primary,
 })
 
-export const StyledCard = styled(Card)({
+export const StyledCard = styled(({ isdarkmode, ...other }) => (
+  <Card {...other} />
+))({
   width: '25vw',
+  borderRadius: (props) => (props.isdarkmode === 'dark' ? 25 : 15),
 })
 
 //FIX ME BAD COLOR
@@ -111,12 +136,24 @@ export const StyledSwitch = styled(({ isdarkmode, ...other }) => (
   <Switch {...other} />
 ))({
   '& .MuiSwitch-switchBase.Mui-checked': {
-    color: (props) => props.isdarkmode === 'dark' && purple[100],
+    color: (props) => props.isdarkmode === 'dark' && purple[50],
     '$:hover': {
       backgroundColor: purple[100],
     },
   },
   '& .MuiSwitch-swicthBase.Mui-checked + .MuiSwitch-track': {
-    backgroundColor: purple[200],
+    backgroundColor: purple[100],
   },
+  transitionDuration: 500,
+})
+
+export const StyledAddFab = styled(({ isdarkmode, ...other }) => (
+  <Fab {...other} />
+))({
+  background: (props) =>
+    props.isdarkmode === 'dark' ? colors.primary : colors.secondary,
+  color: colors.backgroundLight,
+  position: 'absolute',
+  top: '75vh',
+  left: '95vw',
 })
