@@ -157,3 +157,45 @@ export const StyledAddFab = styled(({ isdarkmode, ...other }) => (
   top: '75vh',
   left: '95vw',
 })
+
+export const StyledClockTitle = styled(({ isdarkmode, ...other }) => (
+  <InitialTitle {...other} />
+))({
+  fontSize: 16,
+  color: (props) =>
+    props.isdarkmode === 'dark' ? colors.primary : colors.secondary,
+  background: 'transparent',
+})
+
+export const StyledHourContainer = styled('div')({
+  height: 50,
+  width: 40,
+  background: colors.primary,
+  color: 'inherit',
+  border: '1px solid ' + colors.backgroundLight,
+  textAlign: 'center',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '5px',
+})
+
+export const StyledHour = styled('span')({
+  fontSize: 32,
+  color: colors.backgroundLight,
+  fontFamily: 'Impact',
+  textAlign: 'center',
+})
+
+export const StyledClockContainer = styled('div')({
+  height: 52,
+  width: 127,
+  color: 'inherit',
+  background: colors.backgroundLight,
+  border: '4px solid black',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: '5px',
+  overflow: 'hidden',
+})
